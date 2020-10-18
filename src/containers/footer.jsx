@@ -23,7 +23,7 @@ const FooterContainer =() => {
                     <Footer.Link href="#" >Accounts</Footer.Link>
                     <Footer.Link href="#" >Redeem Gift Card</Footer.Link>
                     <Footer.Link href="#" >Privacy Policy</Footer.Link>
-                    <Footer.Link href="#" >Speed test </Footer.Link>
+                    <Footer.Link href="https://fast.com/" >Speed test </Footer.Link>
                 </Footer.Column>
                 <Footer.Column>
                     <Footer.Link href="#" >Media center</Footer.Link>
