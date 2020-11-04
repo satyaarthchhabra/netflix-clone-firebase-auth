@@ -12,6 +12,8 @@ const firebaseConfig = {
     appId: "1:559187055605:web:9d8f75e01e7df2546406bc"
   };
   const firebase=Firebase.initializeApp(firebaseConfig)
-  
+  export const auth=firebase.auth()
+  var provider = new Firebase.auth.GoogleAuthProvider();
 //   seedDatabase(firebase)
-  export {firebase}
+  export {firebase,provider}
+  

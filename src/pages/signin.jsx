@@ -5,10 +5,10 @@ import { Form } from '../components'
 import FooterContainer from '../containers/footer'
 import * as Routes from '../constants/routes'
 import HeaderContainer from '../containers/header'
-
+import { provider, auth } from '../lib/firebase.prod'
 
 const SignIn = () => {
-    const {firebase} =useContext(FirebaseContext);
+    const { firebase } = useContext(FirebaseContext);
     const history = useHistory();
     const [emailAdress, setEmailAdress] = useState('')
     const [password, setPassword] = useState('')
@@ -23,7 +23,18 @@ const SignIn = () => {
             setPassword('')
             setError(e.message)
         })
+    }
+    const SignInWithGoogle = () => {
+        auth.signInWithPopup(provider).then((result) => {
+            console.log(result);
+            result.user.updateProfile({
 
+                photoURL: Math.floor(Math.random() * 5) + 1,
+            }).then(() => {
+                history.push(Routes.BROWSE)
+            })
+        }).
+            catch((error) => alert(error.message));
     }
     return (<>
         <HeaderContainer>
@@ -35,6 +46,9 @@ const SignIn = () => {
                     <Form.Input type="password" autoComplete="off" placeholder="password pls" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <Form.Submit disabled={isInvalid} type="submit" >
                         Sign In
+                </Form.Submit>
+                    <Form.Submit onClick={SignInWithGoogle} >
+                        Sign In With Google
                 </Form.Submit>
                 </Form.Base>
                 <Form.Text>
