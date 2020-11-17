@@ -1,6 +1,11 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div``;
+export const CenterDiv = styled.div`
+display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 export const Overlay = styled.div`
   display: flex;
